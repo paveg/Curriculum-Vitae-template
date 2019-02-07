@@ -5,8 +5,8 @@
 |key|value|
 |---|-----|
 |Name|池澤　涼太 (Ikezawa Ryota)|
-|Blog|[Medium](https://www.pavlog.tokyo)|
-|Twitter|[@cuz_r](https://twitter.com/_pavlog)|
+|Blog|[pavlog](https://www.pavlog.tokyo)|
+|Twitter|[@_pavlog](https://twitter.com/_pavlog)|
 |Qiita|[paveg](https://qiita.com/paveg)|
 
 ## スキル
