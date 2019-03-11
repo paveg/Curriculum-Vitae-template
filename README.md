@@ -7,7 +7,7 @@
 |Name|池澤　涼太 (Ikezawa Ryota)|
 |Blog|[pavlog](https://www.pavlog.tokyo)|
 |Twitter|[@_pavlog](https://twitter.com/_pavlog)|
-|Qiita|[paveg](https://qiita.com/paveg)|
+|Qiita|[pav](https://qiita.com/pav)|
 
 ## スキル
 
@@ -61,13 +61,15 @@
 
 ## 職務経歴
 
-### 2018/08 - : acall株式会社
+### 2018/08 - 2019/04: acall株式会社
 
 職務: Webアプリケーションエンジニア（副業）
 
 #### 開発補助
 
 - Rails 5.0から5.2系へのアップデート
+- Ruby 2.2 -> 2.4
+- Migration Paperclip to ActiveStorage
 
 ### 2015/11 - : freee株式会社
 
