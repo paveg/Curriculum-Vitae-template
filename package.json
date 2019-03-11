@@ -15,7 +15,9 @@
     "url": "https://github.com/paveg/curriculum-vitae/issues"
   },
   "homepage": "https://github.com/paveg/curriculum-vitae#readme",
-  "dependencies": {},
+  "dependencies": {
+    "markdown-pdf": "^9.0.0"
+  },
   "devDependencies": {
     "markdownlint": "^0.11.0",
     "markdownlint-cli": "^0.11.0"
