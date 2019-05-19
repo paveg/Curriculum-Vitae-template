@@ -8,7 +8,7 @@
 |Blog|[pavlog](https://www.pavlog.tokyo)|
 |Twitter|[@_pavlog](https://twitter.com/_pavlog)|
 |Qiita|[pav](https://qiita.com/pav)|
-|Portfolio|https://pavlog.now.sh|
+|Portfolio|[pavlog.now.sh](https://pavlog.now.sh)|
 
 ## リンク
 
@@ -83,7 +83,7 @@
   - Ruby 2.2 -> 2.4
   - Migration Paperclip to ActiveStorage
 - 技術
-  - Ruby, Ruby On Rails, PostgreSQL, GitLab 
+  - Ruby, Ruby On Rails, PostgreSQL, GitLab
 
 ### 2015/11 - : freee株式会社
 
