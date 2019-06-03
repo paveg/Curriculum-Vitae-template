@@ -18,6 +18,10 @@ commands:
           paths:
             - ./node_modules
           key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 version: 2.1
 jobs:
   prepare:
