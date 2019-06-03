@@ -52,6 +52,8 @@ jobs:
           command: |
             git checkout -b update-pdf
             yarn run pdf
+            git config user.email "pavegy@gmail.com"
+            git config user.name "paveg+circleci"
             git add README.pdf
             git commit -m "Update curriculum vitae"
             git push origin update-pdf
