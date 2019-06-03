@@ -1,18 +1,62 @@
-version: 2
-jobs:
-  build:
+defaults: &defaults
+  working_directory: ~/repo
+executors:
+  default:
     docker:
-      - image: circleci/node:9.11.2-stretch-browsers
-    working_directory: ~/repo
+      - image: circleci/node:10.15.3-stretch-browsers
+commands:
+  restore-and-save-cache:
     steps:
-      - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-          - v1-dependencies-
-      - run: yarn install
+            - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run:
+          name: Install Dependencies
+          command: yarn install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-      - run: yarn test
+version: 2.1
+jobs:
+  prepare:
+    <<: *defaults
+    executor: default
+    steps:
+      - checkout
+      - restore-and-save-cache
+  test:
+    <<: *defaults
+    executor: default
+    steps:
+      - restore-and-save-cache
+      - run:
+          name: execute tests
+          command: yarn test
+  update-pdf:
+    <<: *defaults
+    executor: default
+    steps:
+      - restore-and-save-cache
+      - run:
+          name: update pdf
+          command: |
+            git checkout update-pdf
+            markdown-pdf README.md
+            git add README.pdf
+            git commit -m "Update curriculum vitae"
+            git push origin update-pdf
+workflows:
+  integration:
+    jobs:
+      - prepare
+      - test:
+          requires:
+            - prepare
+      - update-pdf:
+          requires:
+            - prepare
+#          filters:
+#            branches:
+#              only: master
