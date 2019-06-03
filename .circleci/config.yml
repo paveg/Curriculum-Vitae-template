@@ -35,7 +35,7 @@ jobs:
       - restore-and-save-cache
       - run:
           name: execute tests
-          command: yarn test
+          command: make lint
   update-pdf:
     <<: *defaults
     executor: default
@@ -47,7 +47,7 @@ jobs:
           name: update pdf
           command: |
             git checkout update-pdf
-            markdown-pdf README.md
+            make pdf
             git add README.pdf
             git commit -m "Update curriculum vitae"
             git push origin update-pdf
