@@ -5,8 +5,14 @@
 help: ## show options
 	@grep -E '^[a-zA-Z_-{\.}]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-lint: ## run static linter
+pre-lint: ## run prepare for lint
+	@yarn global add markdownlint-cli
+
+pre-pdf: ## run markdown to pdf
+	@yarn global add markdown-pdf
+
+lint: pre-lint ## run static linter
 	@markdownlint README.md
 
-pdf: ## update pdf
+pdf: pre-pdf ## update pdf
 	@markdown-pdf README.md
