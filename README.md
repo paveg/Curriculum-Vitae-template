@@ -1,10 +1,14 @@
 # 職務経歴書
 
+[![CircleCI](https://circleci.com/gh/paveg/curriculum-vitae.svg?style=svg&circle-token=1f5711067cc9f0c3135876e5c5ada301ce1bf0b7)][circleci]
+
+[circleci]: (https://circleci.com/gh/paveg/curriculum-vitae)
+
 ## 基本情報
 
 |key|value|
 |---|-----|
-|Name|池澤　涼太 (Ikezawa Ryota)|
+|Name|池澤　涼太 (Ryota Ikezawa)|
 |Blog|[pavlog](https://www.pavlog.tokyo)|
 |Twitter|[@_pavlog](https://twitter.com/_pavlog)|
 |Qiita|[pav](https://qiita.com/pav)|
@@ -45,6 +49,7 @@
 
 - アジャイル開発 - 4年
   - スクラム開発 - 半年
+  - ハイブリッド (ウォーターフォール + アジャイル) - 半年
 
 ## 強み
 
@@ -55,7 +60,7 @@
 - 開発生産性の改善（単位は小さめ）
 - 品質重視
   - ユニットテストやテスト設計
-  - 静的解析器等
+  - 静的解析器
   - codecov.ioの導入
 
 ## やったことはないが興味があるもの
@@ -89,13 +94,18 @@
 
 職務: Webアプリケーションエンジニア
 
-#### 銀行API連携の開発・プロジェクトマネジメント (2018/08 - )
+#### 新規金融サービス開発 (2019/06 - )
+
+- wip
+
+#### 銀行API連携の開発・プロジェクトマネジメント (2018/08 - 2019/06)
 
 - 業務内容
   - バグ修正
   - 問い合わせ改善
   - 足回り改善
   - 銀行API連携のPjM - 以下関わったもののプレスリリース
+    - [My JCB API連携](https://corp.freee.co.jp/news/jcb-freee-9159.html)
     - [GMOあおぞらネット銀行API連携](https://corp.freee.co.jp/news/gmoaozora-api-9124.html)
     - [信用金庫とのAPI連携](https://corp.freee.co.jp/news/shinkin-253-8950.html)
     - [三菱UFJ銀行、個人向けのAPI連携](https://corp.freee.co.jp/news/mufg-api-8934.html)

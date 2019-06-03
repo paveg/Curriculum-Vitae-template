@@ -1,27 +1,73 @@
-version: 2
-jobs:
-  build:
+defaults: &defaults
+  working_directory: ~/repo
+executors:
+  default:
     docker:
-      - image: circleci/node:9.11.2-stretch-browsers
-
-    working_directory: ~/repo
-
+      - image: circleci/node:10.15.3-stretch-browsers
+commands:
+  restore-and-save-cache:
     steps:
-      - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: yarn install
-
+            - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run:
+          name: Install Dependencies
+          command: yarn install
       - save_cache:
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: yarn test
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+version: 2.1
+jobs:
+  prepare:
+    <<: *defaults
+    executor: default
+    steps:
+      - checkout
+      - restore-and-save-cache
+  test:
+    <<: *defaults
+    executor: default
+    steps:
+      - attach_workspace:
+          at: .
+      - restore-and-save-cache
+      - run:
+          name: execute tests
+          command: yarn run lint
+  update-pdf:
+    <<: *defaults
+    executor: default
+    steps:
+      - attach_workspace:
+          at: .
+      - restore-and-save-cache
+      - run:
+          name: update pdf
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+            git checkout -b update-pdf
+            yarn run pdf
+            git config user.email "pavegy@gmail.com"
+            git config user.name "paveg+circleci"
+            git add README.pdf
+            git commit -m "Update curriculum vitae"
+            git push origin update-pdf
+workflows:
+  integration:
+    jobs:
+      - prepare
+      - test:
+          requires:
+            - prepare
+      - update-pdf:
+          requires:
+            - prepare
+          filters:
+            branches:
+              only: master
