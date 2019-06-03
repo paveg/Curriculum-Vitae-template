@@ -4,7 +4,7 @@
   "description": "## curriculum vitae",
   "scripts": {
     "lint": "markdownlint README.md",
-    "pdf": "markdown-pdf README.md"
+    "pdf": "markdown-pdf -s markdown.css README.md"
   },
   "repository": {
     "type": "git",

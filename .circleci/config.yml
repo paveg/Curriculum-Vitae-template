@@ -54,9 +54,9 @@ jobs:
             git checkout -b update-pdf
             yarn run pdf
             git config user.email "pavegy@gmail.com"
-            git config user.name "paveg+circleci"
+            git config user.name "Ryota Ikezawa"
             git add README.pdf
-            git commit -m "Update curriculum vitae"
+            git commit -m "Update PDF"
             git push origin update-pdf
 workflows:
   integration:
