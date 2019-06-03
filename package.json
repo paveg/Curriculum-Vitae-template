@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "## curriculum vitae",
   "scripts": {
-    "test": "scripts/test"
+    "lint": "markdownlint README.md",
+    "pdf": "markdown-pdf README.md"
   },
   "repository": {
     "type": "git",

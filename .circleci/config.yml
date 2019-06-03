@@ -38,11 +38,8 @@ jobs:
           at: .
       - restore-and-save-cache
       - run:
-          name: Install Command
-          command: make pre-lint
-      - run:
           name: execute tests
-          command: make lint
+          command: yarn run lint
   update-pdf:
     <<: *defaults
     executor: default
@@ -51,13 +48,10 @@ jobs:
           at: .
       - restore-and-save-cache
       - run:
-          name: Install Command
-          command: make pre-pdf
-      - run:
           name: update pdf
           command: |
             git checkout update-pdf
-            make pdf
+            yarn run pdf
             git add README.pdf
             git commit -m "Update curriculum vitae"
             git push origin update-pdf
