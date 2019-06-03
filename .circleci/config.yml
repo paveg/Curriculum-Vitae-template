@@ -50,6 +50,7 @@ jobs:
       - run:
           name: update pdf
           command: |
+            git reset HEAD --hard || echo ng
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git checkout -b update-pdf
             yarn run pdf
