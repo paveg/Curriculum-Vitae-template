@@ -50,6 +50,7 @@ jobs:
       - run:
           name: update pdf
           command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git checkout -b update-pdf
             yarn run pdf
             git config user.email "pavegy@gmail.com"
