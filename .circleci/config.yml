@@ -50,7 +50,7 @@ jobs:
       - run:
           name: update pdf
           command: |
-            git checkout update-pdf
+            git checkout -b update-pdf
             yarn run pdf
             git add README.pdf
             git commit -m "Update curriculum vitae"
