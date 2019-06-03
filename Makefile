@@ -11,8 +11,8 @@ pre-lint: ## run prepare for lint
 pre-pdf: ## run markdown to pdf
 	@yarn global add markdown-pdf
 
-lint: pre-lint ## run static linter
+lint: ## run static linter
 	@markdownlint README.md
 
-pdf: pre-pdf ## update pdf
+pdf: ## update pdf
 	@markdown-pdf README.md

@@ -38,6 +38,9 @@ jobs:
           at: .
       - restore-and-save-cache
       - run:
+          name: Install Command
+          command: make pre-lint
+      - run:
           name: execute tests
           command: make lint
   update-pdf:
@@ -47,6 +50,9 @@ jobs:
       - attach_workspace:
           at: .
       - restore-and-save-cache
+      - run:
+          name: Install Command
+          command: make pre-pdf
       - run:
           name: update pdf
           command: |
