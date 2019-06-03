@@ -68,6 +68,6 @@ workflows:
       - update-pdf:
           requires:
             - prepare
-#          filters:
-#            branches:
-#              only: master
+          filters:
+            branches:
+              only: master
